@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.layout.FlowPane?>
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+          xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="sample.Controller">
+
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#acae9a" height="150.0" stroke="#fcff41" strokeType="INSIDE"
+                   strokeWidth="0.0" width="280.0"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#acae9a" height="150.0" stroke="#fcff41" strokeType="INSIDE"
+                   strokeWidth="0.0" width="270.0" GridPane.columnIndex="2"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#acae9a" height="150.0" stroke="#fcff41" strokeType="INSIDE"
+                   strokeWidth="0.0" width="150.0" GridPane.columnIndex="1"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#76e19b" height="200.0" stroke="BLACK" strokeType="INSIDE"
+                   strokeWidth="0.0" width="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#60b5ff" height="200.0" stroke="BLACK" strokeType="INSIDE"
+                   strokeWidth="3.0" width="280.0" GridPane.rowIndex="1"/>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8d3030" height="200.0" stroke="BLACK" strokeType="INSIDE"
+                   strokeWidth="3.0" width="270.0" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <VBox>
+            <Label text="MATRICE A" translateX="95">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <HBox translateX="110">
+                <TextField fx:id="ia" prefHeight="10.0" prefWidth="20.0" text="3">
+                    <font>
+                        <Font size="8.0"/>
+                    </font>
+                </TextField>
+                <Label text="x"/>
+                <TextField fx:id="ja" prefHeight="10.0" prefWidth="20.0" text="3">
+                    <font>
+                        <Font size="8.0"/>
+                    </font>
+                </TextField>
+            </HBox>
+            <ScrollPane minWidth="277" maxWidth="277" minHeight="110" maxHeight="110">
+                <GridPane fx:id="aMatrice">
+                    <children>
+                        <TextField fx:id="a10" text="0" maxWidth="40" GridPane.columnIndex="1"/>
+                        <TextField fx:id="a01" text="0" maxWidth="40" GridPane.rowIndex="1"/>
+                        <TextField fx:id="a00" text="0" maxWidth="40"/>
+                        <TextField fx:id="a20" text="0" maxWidth="40" GridPane.columnIndex="2"/>
+                        <TextField fx:id="a21" text="0" maxWidth="40" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <TextField fx:id="a02" text="0" maxWidth="40" GridPane.rowIndex="2"/>
+                        <TextField fx:id="a22" text="0" maxWidth="40" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <TextField fx:id="a11" text="0" maxWidth="40" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <TextField fx:id="a12" text="0" maxWidth="40" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints/>
+                        <ColumnConstraints/>
+                        <ColumnConstraints/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                    </rowConstraints>
+                </GridPane>
+            </ScrollPane>
+
+        </VBox>
+        <VBox translateX="10" GridPane.columnIndex="2" GridPane.rowIndex="1">
+            <Label text="CALCULS DES DEUX MATRICES" translateX="25" translateY="10">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <GridPane minWidth="150" translateX="75" translateY="50">
+                <Button maxWidth="40" onAction="#Addition" text="+"/>
+                <Button maxWidth="40" onAction="#Soustraction" text="-" GridPane.columnIndex="1"/>
+                <Button maxWidth="40" onAction="#Transposition" text="A†" GridPane.rowIndex="1"/>
+                <Button maxWidth="40" onAction="#ProduitMatriciel" text="AB" GridPane.columnIndex="1"
+                        GridPane.rowIndex="1"/>
+                <Button maxWidth="40" onAction="#ProduitVectoriel" text="AxB" GridPane.columnIndex="2"
+                        GridPane.rowIndex="1"/>
+                <Button maxWidth="40" onAction="#ProduitHadamard" text="A•B" GridPane.columnIndex="2"/>
+                <columnConstraints>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                    <ColumnConstraints/>
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints/>
+                    <RowConstraints/>
+                </rowConstraints>
+            </GridPane>
+            <Button maxWidth="65" onAction="#ProduitTensoriel" text="Inversion" GridPane.columnIndex="1"
+                    GridPane.rowIndex="2" translateX="95" translateY="51"/>
+            <Button onAction="#CréeMatrice" text="Créer Matrice" translateX="85" translateY="70"
+                    GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        </VBox>
+        <VBox minHeight="150" GridPane.columnIndex="2">
+            <Label text="MATRICE B" translateX="95">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <HBox translateX="110">
+                <TextField fx:id="ib" prefHeight="10.0" prefWidth="20.0" text="3">
+                    <font>
+                        <Font size="8.0"/>
+                    </font>
+                </TextField>
+                <Label text="x"/>
+                <TextField fx:id="jb" prefHeight="10.0" prefWidth="20.0" text="3">
+                    <font>
+                        <Font size="8.0"/>
+                    </font>
+                </TextField>
+            </HBox>
+            <ScrollPane minWidth="270" maxWidth="270" minHeight="110" maxHeight="110">
+                <GridPane fx:id="bMatrice">
+                    <children>
+                        <TextField fx:id="b01" text="0" GridPane.columnIndex="1" maxWidth="40"/>
+                        <TextField fx:id="b10" text="0" GridPane.rowIndex="1" maxWidth="40"/>
+                        <TextField fx:id="b00" text="0" maxWidth="40"/>
+                        <TextField fx:id="b02" text="0" GridPane.columnIndex="2" maxWidth="40"/>
+                        <TextField fx:id="b12" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1" maxWidth="40"/>
+                        <TextField fx:id="b20" text="0" GridPane.rowIndex="2" maxWidth="40" prefWidth="40"
+                                   minWidth="40"/>
+                        <TextField fx:id="b22" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2" maxWidth="40"/>
+                        <TextField fx:id="b11" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1" maxWidth="40"/>
+                        <TextField fx:id="b21" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2" maxWidth="40"/>
+                    </children>
+                    <columnConstraints>
+                        <ColumnConstraints/>
+                        <ColumnConstraints/>
+                        <ColumnConstraints/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                        <RowConstraints/>
+                    </rowConstraints>
+                </GridPane>
+            </ScrollPane>
+        </VBox>
+        <GridPane minWidth="100" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Label text="Réponse" translateX="45">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <children>
+                <VBox>
+                <ScrollPane maxWidth="90" maxHeight="90" minWidth="90" minHeight="90" translateY="75" translateX="30">
+                    <GridPane fx:id="cMatrice">
+                        <Label fx:id="c01" text="0" GridPane.columnIndex="1"/>
+                        <Label fx:id="c10" text="0" GridPane.rowIndex="1"/>
+                        <Label fx:id="c00" text="0"/>
+                        <Label fx:id="c02" text="0" GridPane.columnIndex="2"/>
+                        <Label fx:id="c12" text="0" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Label fx:id="c20" text="0" GridPane.rowIndex="2"/>
+                        <Label fx:id="c22" text="0" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Label fx:id="c11" text="0" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label fx:id="c21" text="0" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                    </GridPane>
+                </ScrollPane>
+                    <Button text="Imprimer" onAction="#Imprimer" translateY="110" translateX="15" minHeight="40" minWidth="120"/>
+            </VBox>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+                <ColumnConstraints/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints/>
+                <RowConstraints/>
+                <RowConstraints/>
+            </rowConstraints>
+        </GridPane>
+        <VBox minHeight="200.0" prefWidth="100.0" GridPane.rowIndex="1">
+            <Label text="MATRICE A CALCULS" translateX="60" translateY="10">
+                <font>
+                    <Font name="System Bold" size="14.0"/>
+                </font>
+            </Label>
+            <HBox translateX="100" translateY="40">
+                <Button fx:id="multiplicationButtonA" onAction="#MultiplicationA" text="A •"/>
+                <TextField fx:id="multiplicationA" maxWidth="30" text="0"/>
+            </HBox>
+            <HBox translateX="100" translateY="70">
+                <Button fx:id="PuissanceButtonA" onAction="#PuissanceA" text="A ^"/>
+                <TextField fx:id="PuissanceA" maxWidth="30" text="0"/>
+            </HBox>
+            <HBox translateX="80" translateY="100">
+                <Button fx:id="determinantButtonA" onAction="#PuissanceA" text="Determinant A" translateY="-5"/>
+                <Label text=" = "/>
+                <Label fx:id="determinant" text="0" GridPane.columnIndex="1"/>
+
+            </HBox>
+        </VBox>
+
+    </children>
+    <columnConstraints>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+        <ColumnConstraints/>
+    </columnConstraints>
+    <rowConstraints>
+        <RowConstraints/>
+        <RowConstraints/>
+        <RowConstraints/>
+    </rowConstraints>
+</GridPane>
